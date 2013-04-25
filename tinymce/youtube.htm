@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{#youtube.desc}</title>
+    <script type="text/javascript">
+        // Because there is no relative path to TinyMCE, we have to use JavaScript
+        // to work out correct path from the .js files from TinyMCE. Only files
+        // inside this plugin can be included with relative path (below).
+        var tinymce_yt_include = function(path) {
+            document.write('<script type="text/javascript" src="' +
+                parent.tinyMCE.baseURL + '/' + path + '"></' + 'script>');
+        };
+        tinymce_yt_include('tiny_mce_popup.js');
+        tinymce_yt_include('utils/validate.js');
+        tinymce_yt_include('utils/form_utils.js');
+        tinymce_yt_include('utils/editable_selects.js');
+
+        var tinymce_youtube_getTabSetHTML = function() {
+            var html = tinyMCEPopup.getParam('youtube_tabset');
+            return html;
+        }
+		
+		var tinymce_youtube_getUploaderHTML = function() {
+            var html = tinyMCEPopup.getParam('uploader_html');
+            return html;
+        }
+        
+        var tinymce_youtube_getBrowseListHTML = function() {
+            var html = tinyMCEPopup.getParam('browselist_html');
+            return html;
+        }
+        
+        var tinymce_youtube_getBrowseListButtonHTML = function() {
+            var html = tinyMCEPopup.getParam('browselist_button_html');
+            return html;
+        }
+
+    </script>
+
+
+<!--YUI JS It would be nice to pull this from Moodle, but we'd need to know the installed YUI version-->
+<script src="http://yui.yahooapis.com/3.9.0/build/yui/yui-min.js"></script> 
+
+
+<!-- MODULE JS CSS-->
+	<script type="text/javascript" src="js/youtube.js"></script>
+    <link href="css/youtube.css" rel="stylesheet" type="text/css" />
+    <!-- YOUTUBE JS -->
+    <script type="text/javascript" src="http://www.youtube.com/iframe_api"></script>
+
+</head>
+<body style="display: none">
+
+    <form onsubmit="tinymce_youtube_insertYoutubeLink();return false;" action="#">
+        <div class="panel_wrapper">
+            <div id="general_panel" class="panel current yui3-skin-sam">
+                <input id="youtubevidid" name="youtubevidid" type="hidden" value="" />
+                <fieldset>
+                    <legend>YouTube</legend>
+                    <div id="youtubetabset_container" />
+                </fieldset>
+            </div>
+
+        </div>
+
+        <div class="mceActionPanel">
+            <div style="float: left">
+                <input type="submit" id="insert" name="insert" value="{#insert}" />
+            </div>
+
+            <div style="float: right">
+                <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>
