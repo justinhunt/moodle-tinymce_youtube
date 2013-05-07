@@ -26,7 +26,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 define('TINYMCE_YOUTUBE_COMPONENT','tinymce_youtube');
-define('YOUTUBEAPPID','moodle_youtube_assigsub');
+define('TINYMCE_YOUTUBE_APPID','moodle_tinymce_youtube');
+//define('YOUTUBEAPPID','moodle_youtube_assigsub');
 
 $clientLibraryPath = $CFG->libdir  . '/editor/tinymce/plugins/youtube/ZendGdata-1.12.1/library';
 $oldPath = set_include_path(get_include_path() . PATH_SEPARATOR . $clientLibraryPath);
@@ -105,7 +106,7 @@ class youtubeapi {
 		}
 		
 		// create our youtube object.
-		$yt = new Zend_Gdata_YouTube($httpclient,YOUTUBEAPPID,fullname($USER),$devkey);
+		$yt = new Zend_Gdata_YouTube($httpclient,TINYMCE_YOUTUBE_APPID,fullname($USER),$devkey);
 
 		return $yt;
 
@@ -357,7 +358,7 @@ class youtubeapi {
         $secret = $this->config->get('secret');
 		$realm = "http://gdata.youtube.com";
 		//create and store our YouTube oauth client
-        $this->youtubeoauth = new youtube_oauth($clientid, $secret, $returnurl, $realm);
+        $this->youtubeoauth = new tinymce_youtube_oauth($clientid, $secret, $returnurl, $realm);
     }
 
 	  /**
@@ -611,7 +612,7 @@ class youtube_settings {
  * @copyright 2013 Justin Hunt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class youtube_oauth extends google_oauth {
+class tinymce_youtube_oauth extends google_oauth {
 	
 	public function fetch_accesstoken(){
 		//This should work, but doesn't. Why?
