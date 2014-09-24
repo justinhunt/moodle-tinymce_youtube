@@ -34,7 +34,8 @@ $video_title = optional_param('videotitle', 'YouTube Anywhere',PARAM_TEXT); // t
 
 //we need to set the page context
 require_login();
-$PAGE->set_context(get_context_instance(CONTEXT_USER, $USER->id));
+$user_context = context_user::instance($USER->id);
+$PAGE->set_context($user_context);
 $PAGE->set_url($CFG->wwwroot.'/lib/editor/tinymce/plugins/youtube/browser.php');
 
 

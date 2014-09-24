@@ -81,7 +81,7 @@ $string['allowytcommentdetails'] = '* does not apply to videos recorded from web
 $string['allowytratedetails'] = '* does not apply to videos recorded from webcam.';
 $string['allowytresponddetails'] = '* does not apply to videos recorded from webcam.';
 //youtube specific string
-$string['youtubedevkey'] = 'YouTube Developer Key';
+$string['youtubedevkey'] = 'Google Public API Key';
 $string['youtubedevkeydetails'] = '';
 $string['authtype'] = 'Authentication Method';
 $string['authtypedetails'] = '';
@@ -116,7 +116,7 @@ $string['browsevideosdetails'] = "Select a YouTube video from the list below.<br
 $string['uploadsuccessful'] = 'Upload Successful';
 $string['uploadfailed'] = 'Upload Failed';
 $string['pleasesave'] = 'click the Insert button to finish.';
-$string['nodevkey'] =  'To upload, your administrator must specify their developer key in the admin settings for this plugin.';
+$string['nodevkey'] =  'To upload, your administrator must specify their Google Public API Key in the admin settings for this plugin.';
 $string['nomaster'] =  'To upload, your administrator must specify a master YouTube account and password.';
 $string['nooauth2'] =  'To upload, your administrator must specify a Google OAUTH2 client id and secret.';
 $string['youtubecallbackfailed'] =  'The processing of your authorisation from YouTube/Google failed. Unable to contact the HTML editor.';
